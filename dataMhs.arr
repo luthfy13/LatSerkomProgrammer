@@ -1,1 +1,1 @@
-a:3:{i:0;O:9:"Mahasiswa":3:{s:3:"nim";s:3:"001";s:4:"nama";s:5:"hasaa";s:4:"telp";s:4:"6879";}i:1;O:9:"Mahasiswa":3:{s:3:"nim";s:3:"002";s:4:"nama";s:5:"basri";s:4:"telp";s:5:"89789";}i:2;O:9:"Mahasiswa":3:{s:3:"nim";s:3:"003";s:4:"nama";s:4:"andi";s:4:"telp";s:5:"87687";}}
+a:2:{i:0;O:9:"Mahasiswa":3:{s:3:"nim";s:3:"001";s:4:"nama";s:5:"hasan";s:4:"telp";s:5:"87687";}i:1;O:9:"Mahasiswa":3:{s:3:"nim";s:3:"002";s:4:"nama";s:5:"beddu";s:4:"telp";s:4:"6567";}}
