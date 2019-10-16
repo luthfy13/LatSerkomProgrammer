@@ -6,14 +6,28 @@
 <body>
 <?php 
 class Mahasiswa{
-	public $nim;
-	public $nama;
-	public $telp;
+	private $nim;
+	private $nama;
+	private $telp;
+
 	function __construct($nim, $nama, $telp){
 		$this->nim = $nim;
 		$this->nama = $nama;
 		$this->telp = $telp;
 	}
+
+	public function getNim(){
+		return $this->nim;
+	}
+
+	public function getNama(){
+		return $this->nama;
+	}
+
+	public function getTelp(){
+		return $this->telp;
+	}
+
 }
 
 if (session_status() == PHP_SESSION_NONE)
@@ -29,9 +43,9 @@ if (session_status() == PHP_SESSION_NONE)
 	if (isset($_POST["btnSimpan"]) && $_POST["txtNim0"] != ""){
 		for($j=0; $j<$_SESSION["jml"]; $j++){
 			$mhs[$j] = new Mahasiswa($_POST["txtNim".$j], $_POST["txtNama".$j], $_POST["txtTelp".$j]);
-			echo "Nomor Induk: ".$mhs[$j]->nim;
-			echo "  Nama: ".$mhs[$j]->nama;
-			echo "  Telp: ".$mhs[$j]->telp;
+			echo "Nomor Induk: ".$mhs[$j]->getNim();
+			echo "  Nama: ".$mhs[$j]->getNama();
+			echo "  Telp: ".$mhs[$j]->getTelp();
 			echo "<br>";
 		}
 		$jmlBaris = 1;
@@ -48,9 +62,9 @@ if (session_status() == PHP_SESSION_NONE)
 	if (isset($_POST["btnBacaFile"])){
 		$arrayMhs = unserialize(file_get_contents('dataMhs.arr'));
 		for($j=0; $j<count($arrayMhs); $j++){
-			echo "Nomor Induk: ".$arrayMhs[$j]->nim;
-			echo "  Nama: ".$arrayMhs[$j]->nama;
-			echo "  Telp: ".$arrayMhs[$j]->telp;
+			echo "Nomor Induk: ".$arrayMhs[$j]->getNim();
+			echo "  Nama: ".$arrayMhs[$j]->getNama();
+			echo "  Telp: ".$arrayMhs[$j]->getTelp();
 			echo "<br>";
 		}
 		$jmlBaris = 1;
