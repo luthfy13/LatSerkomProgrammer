@@ -14,6 +14,10 @@ class Mahasiswa{
 		$this->nama = $nama;
 		$this->telp = $telp;
 	}
+
+	function __destruct(){
+		echo "<br>Destruktor<br>";
+	}
 }
 
 if (session_status() == PHP_SESSION_NONE)
