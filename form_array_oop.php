@@ -60,58 +60,56 @@ class Operasional{
 	}
 }
 
-	$mhs = array();
-	$i=0;
-	if (isset($_POST["txtJmlBaris"]))
-		$jmlBaris = $_POST["txtJmlBaris"];
-	else
-		$jmlBaris = 1;
+if (isset($_POST["txtJmlBaris"]))
+	$jmlBaris = $_POST["txtJmlBaris"];
+else
+	$jmlBaris = 1;
 
-	if (isset($_POST["btnSimpan"])){
-		$arrayNim = $_POST['txtNim'];
-		$arrayNama = $_POST['txtNama'];
-		$arrayTelp = $_POST['txtTelp'];
-		
-		//buat objek operasional
-		$op = new Operasional();
-		
-		//simpan ke arrayMahasiswa
-		$arrayMhs = $op->prosesSimpan($arrayNim, $arrayNama, $arrayTelp);
+if (isset($_POST["btnSimpan"])){
+	$arrayNim = $_POST['txtNim'];
+	$arrayNama = $_POST['txtNama'];
+	$arrayTelp = $_POST['txtTelp'];
+	
+	//buat objek operasional
+	$op = new Operasional();
+	
+	//simpan ke arrayMahasiswa
+	$arrayMhs = $op->prosesSimpan($arrayNim, $arrayNama, $arrayTelp);
 
-		//tampil data
-		$op->tampilData($arrayMhs);
-		$jmlBaris = 1;
-	}
+	//tampil data
+	$op->tampilData($arrayMhs);
+	$jmlBaris = 1;
+}
 
-	if (isset($_POST["btnSimpanFile"])){
-		$arrayNim = $_POST['txtNim'];
-		$arrayNama = $_POST['txtNama'];
-		$arrayTelp = $_POST['txtTelp'];
+if (isset($_POST["btnSimpanFile"])){
+	$arrayNim = $_POST['txtNim'];
+	$arrayNama = $_POST['txtNama'];
+	$arrayTelp = $_POST['txtTelp'];
 
-		//buat objek operasional
-		$op = new Operasional();
+	//buat objek operasional
+	$op = new Operasional();
 
-		//buat objek file
-		$file = new File();
-		//simpan ke file
-		$arrayMhs = $op->prosesSimpan($arrayNim, $arrayNama, $arrayTelp);
-		$file->simpanFile("dataMhs.arr", $arrayMhs);
+	//buat objek file
+	$file = new File();
+	//simpan ke file
+	$arrayMhs = $op->prosesSimpan($arrayNim, $arrayNama, $arrayTelp);
+	$file->simpanFile("dataMhs.arr", $arrayMhs);
 
-		$jmlBaris = 1;
-		
-	}
+	$jmlBaris = 1;
+	
+}
 
-	if (isset($_POST["btnBacaFile"])){
-		$file = new File();
-		$arrayMhs = $file->bacaFile('dataMhs.arr');
-		
-		//buat objek operasional
-		$op = new Operasional();
-		
-		//tampil data
-		$op->tampilData($arrayMhs);
-		$jmlBaris = 1;
-	}
+if (isset($_POST["btnBacaFile"])){
+	$file = new File();
+	$arrayMhs = $file->bacaFile('dataMhs.arr');
+	
+	//buat objek operasional
+	$op = new Operasional();
+	
+	//tampil data
+	$op->tampilData($arrayMhs);
+	$jmlBaris = 1;
+}
 
 ?>
 	<form action="" method="post">
