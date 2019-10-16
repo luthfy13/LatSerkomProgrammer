@@ -61,9 +61,6 @@ class Operasional{
 	}
 }
 
-if (session_status() == PHP_SESSION_NONE)
-	session_start();
-
 	$mhs = array();
 	$i=0;
 	if (isset($_POST["txtJmlBaris"]))
