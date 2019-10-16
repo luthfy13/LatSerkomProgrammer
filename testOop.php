@@ -7,8 +7,8 @@
 			$this->nim = $nim;
 		}
 
-		public function setNama($nim){
-			$this->nim = $nim;
+		public function setNama($nama){
+			$this->nim = $nama;
 		}
 
 	}
@@ -31,7 +31,7 @@
 
 	//error karena variabel $nama access modifier-nya private
 	//pesan error: "Notice: Undefined property: MahasiswaTeknik::$nama"
-	$mhs->setNama("002");
+	$mhs->setNama("Hasan");
 	echo $mhs->getNamaTeknik();
 
 ?>

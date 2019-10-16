@@ -4,24 +4,30 @@
 	<title></title>
 </head>
 <body>
-<?php 
-class Mahasiswa{
-	private $nim;
+<?php
+
+class Orang{
 	private $nama;
+	public function setNama($nama){
+		$this->nama = $nama;
+	}
+	public function getNama(){
+		return $this->nama;
+	}
+}
+
+class Mahasiswa extends Orang{
+	private $nim;
 	private $telp;
 
 	function __construct($nim, $nama, $telp){
 		$this->nim = $nim;
-		$this->nama = $nama;
+		parent::setNama($nama);
 		$this->telp = $telp;
 	}
 
 	public function getNim(){
 		return $this->nim;
-	}
-
-	public function getNama(){
-		return $this->nama;
 	}
 
 	public function getTelp(){
