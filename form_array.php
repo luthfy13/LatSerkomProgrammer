@@ -36,6 +36,18 @@ class Mahasiswa extends Orang{
 
 }
 
+class OperasiFile{
+	private $namaFile;
+	private $dariFile;
+	public function simpanFile($namaFile, $arrayData){
+		file_put_contents($namaFile, serialize($arrayData));
+	}
+	public function bacaFile($namaFile){
+		$this->dariFile = unserialize(file_get_contents($namaFile));
+		return $this->dariFile;
+	}
+}
+
 if (session_status() == PHP_SESSION_NONE)
 	session_start();
 
@@ -62,11 +74,13 @@ if (session_status() == PHP_SESSION_NONE)
 			$mhs[$j] = new Mahasiswa($_POST["txtNim".$j], $_POST["txtNama".$j], $_POST["txtTelp".$j]);
 		}
 		$jmlBaris = 1;
-		file_put_contents('dataMhs.arr', serialize($mhs));
+		$opFile = new OperasiFile();
+		$opFile->simpanFile("dataMhs.arr", $mhs);
 	}
 
 	if (isset($_POST["btnBacaFile"])){
-		$arrayMhs = unserialize(file_get_contents('dataMhs.arr'));
+		$opFile = new OperasiFile();
+		$arrayMhs = $opFile->bacaFile('dataMhs.arr');
 		for($j=0; $j<count($arrayMhs); $j++){
 			echo "Nomor Induk: ".$arrayMhs[$j]->getNim();
 			echo "  Nama: ".$arrayMhs[$j]->getNama();
