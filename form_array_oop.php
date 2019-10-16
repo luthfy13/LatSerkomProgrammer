@@ -33,13 +33,12 @@ class Mahasiswa{
 
 class File{
 	private $namaFile;
-	private $dariFile;
 	public function simpanFile($namaFile, $arrayData){
 		file_put_contents($namaFile, serialize($arrayData));
 	}
 	public function bacaFile($namaFile){
-		$this->dariFile = unserialize(file_get_contents($namaFile));
-		return $this->dariFile;
+		$hasil = unserialize(file_get_contents($namaFile));
+		return $hasil;
 	}
 }
 
