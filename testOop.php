@@ -29,7 +29,7 @@
 	$mhs->setNim("001");
 	echo $mhs->getNimTeknik();
 
-	//error karena variabel $nim access modifier-nya private
+	//error karena variabel $nama access modifier-nya private
 	//pesan error: "Notice: Undefined property: MahasiswaTeknik::$nama"
 	$mhs->setNama("002");
 	echo $mhs->getNamaTeknik();
